@@ -1,4 +1,4 @@
-function res = bic(file)
+function [] = bic(file)
 %BIC uses bayesian image classification to seperate an apple and a banana.
 %file is the location string of the image.
 
@@ -9,7 +9,7 @@ image = imread(file);
 image_gray = rgb2gray(image);
 
 % remove gray areas, image becomes black and white
-threshold = 0.05; % image has black background, so we can use this threshold
+threshold = 0.1; % image has black background, so we can use this threshold
 image_bw = im2bw(image_gray, threshold);
 
 % remove small objects
@@ -22,18 +22,18 @@ image_bw = imfill(image_bw, 'holes');
 [B,L] = bwboundaries(image_bw, 'noholes');
 
 % display the label matrix and draw each boundary
-%imshow(label2rgb(L, @jet, [.5 .5 .5]))
-%hold on
-%for k = 1:length(B)
-%  boundary = B{k};
-%  plot(boundary(:,2), boundary(:,1), 'w', 'LineWidth', 2)
-%end
+imshow(label2rgb(L, @jet, [.5 .5 .5]))
+hold on
+for k = 1:length(B)
+  boundary = B{k};
+  plot(boundary(:,2), boundary(:,1), 'w', 'LineWidth', 2)
+end
 
 % determine similarity between shape and a circle
 stats = regionprops(L,'Area','Centroid');
 
 threshold = 0.94;
-
+temp_area = 0;
 % loop over the boundaries
 for k = 1:length(B)
 
@@ -50,10 +50,22 @@ for k = 1:length(B)
   % compute the roundness metric
   metric = 4*pi*area/perimeter^2;
   
+  % display the results
+  metric_string = sprintf('%2.2f',metric);
+
+  % mark objects above the threshold with a black circle
+  if metric > threshold
+    centroid = stats(k).Centroid;
+    plot(centroid(1),centroid(2),'ko');
+  end
+  
+  text(boundary(1,2)-35,boundary(1,1)+13,metric_string,'Color','y',...
+       'FontSize',14,'FontWeight','bold');
+  
 end
 
-   
-res = metric
+title(['Metrics closer to 1 indicate that ',...
+       'the object is approximately round']);
 
 end
 
