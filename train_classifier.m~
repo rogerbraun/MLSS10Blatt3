@@ -1,0 +1,8 @@
+function classifier = train_classifier(aepfel,bananen )
+
+    training_data = [aepfel;bananen];
+    training_classes = cell(length(aepfel) ,1);
+    training_classes(1:length(apfel)
+        
+end
+

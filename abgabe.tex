@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\title{Aufgabe 2}
+\date{}
+\begin{document}
+\section{Abschnitt (a)}
+
+Allgemeine Formel:
+
+  \begin{align}
+    p(w_n|x) &= \frac{p(x|w_n) * \frac{1}{3}}{\sum_{j=1}^3 p(x|w_j) * \frac{1}{3}}
+  \end{align}
+  
+Berechnung fuer $x = (3,3)^t$
+
+  \begin{align}
+    p(w_1|(3,3)^t) &= \frac{p((3,3)^t|w_1) * \frac{1}{3}}{\sum_{j=1}^3 p((3|3)^t|w_j) * \frac{1}{3}} \\
+    p(w_1|(3,3)^t) &= \frac{0.00001964 * \frac{1}{3}}{0.0001964 * \frac{1}{3} + 0.0029 * \frac{1}{3} + 0.00032254 * \frac{1}{3}} \\
+    p(w_1|(3,3)^t) &= \frac{0.0000065471}{0.0011} \\
+    p(w_1|(3,3)^t) &= 0.006
+  \end{align}
+  \begin{align}
+    p(w_2|(3,3)^t) &= \frac{p((3,3)^t|w_2) * \frac{1}{3}}{\sum_{j=1}^3 p((3|3)^t|w_j) * \frac{1}{3}} \\
+    p(w_2|(3,3)^t) &= \frac{0.0029 * \frac{1}{3}}{0.0001964 * \frac{1}{3} + 0.0029 * \frac{1}{3} + 0.00032254 * \frac{1}{3}} \\
+    p(w_2|(3,3)^t) &= \frac{0.0029 * \frac{1}{3}}{0.0011} \\
+    p(w_2|(3,3)^t) &= 0.8788
+  \end{align}
+  \begin{align}
+    p(w_3|(3,3)^t) &= \frac{p((3,3)^t|w_3) * \frac{1}{3}}{\sum_{j=1}^3 p((3|3)^t|w_j) * \frac{1}{3}} \\
+    p(w_3|(3,3)^t) &= \frac{0.00032254 * \frac{1}{3}}{0.0001964 * \frac{1}{3} + 0.0029 * \frac{1}{3} + 0.00032254 * \frac{1}{3}} \\
+    p(w_3|(3,3)^t) &= \frac{0.00032254 * \frac{1}{3}}{0.0011} \\
+    p(w_3|(3,3)^t) &= 0.0977
+  \end{align}
+
+Der Fisch ist also wohl ein $w_2$.
+
+\section{Abschnitt (b)}
+
+  \begin{align}
+    p(w_1|(*,0.3)^t) &=\int p(w_1|(x,0.3)^t) dx\\
+    p(w_1|(*,0.3)^t) &= 1.8669
+  \end{align}
+  \begin{align}
+    p(w_2|(*,0.3)^t) &=\int p(w_2|(x,0.3)^t) dx\\
+    p(w_2|(*,0.3)^t) &= 7.6189
+  \end{align}
+  \begin{align}
+    p(w_3|(*,0.3)^t) &=\int p(w_3|(x,0.3)^t) dx\\
+    p(w_3|(*,0.3)^t) &= 10.5142
+  \end{align}
+
+Der Fisch wird also als $w_3$ klassifiziert.
+
+\section{Abschnit (c)}
+
+Berechnung fuer $(0.3,*)^t$
+  \begin{align}
+    p(w_1|(0.3,*)^t) &=\int p(w_1|(0.3,x)^t) dx\\
+    p(w_1|(0.3,*)^t) &= 8.5695
+  \end{align}
+  \begin{align}
+    p(w_2|(0.3,*)^t) &=\int p(w_2|(0.3,x)^t) dx\\
+    p(w_2|(0.3,*)^t) &= 7.1908
+  \end{align}
+  \begin{align}
+    p(w_3|(0.3,*)^t) &=\int p(w_3|(0.3,x)^t) dx\\
+    p(w_3|(0.3,*)^t) &= 4.2397
+  \end{align}
+
+Der Fisch wird also also als $w_1$ klassifiziert.
+\end{document}

@@ -1,0 +1,15 @@
+function [ aepfel,birnen ] = load_training_files()
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+
+    aepfel_files = dir(fullfile('bilder','a*.jpg'));
+    aepfel_files = aepfel_files(1:15); % Damit aTest.jpg und abTest.jpg nicht dabei sind.
+    birnen_files = dir(fullfile('bilder','b*.jpg'));
+    
+    for index = 1:15
+        aepfel(index) = bic(strcat('bilder/',aepfel_files(index).name));
+        birnen(index) = bic(strcat('bilder/',birnen_files(index).name));
+    end  
+        
+end
+
