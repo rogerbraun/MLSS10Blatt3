@@ -4,4 +4,7 @@ banana_pics = str2mat('b0.jpg','b1.jpg','b2.jpg','b3.jpg','b4.jpg','b5.jpg',...
     'b6.jpg','b7.jpg','b8.jpg','b9.jpg','b10.jpg','b11.jpg','b12.jpg','b13.jpg','b14.jpg');
 
 banana_test_pics = str2mat('b2.jpg','b3.jpg','b4.jpg','b5.jpg','b6.jpg','b7.jpg');
-c4 = train_and_plot_two_features(@featureI, @feature2);
+%c4 = train_and_plot_two_features(@featureI, @feature2);
+
+c5 = train_and_plot_two_features(@featureI2,@feature2_reduced);
+results_two_features_reduced = [test_with_files(apple_pics,'bilder/',c5,@feature1_2_reduced); test_with_files(banana_pics,'bilder/',c4,@feature1_2)];

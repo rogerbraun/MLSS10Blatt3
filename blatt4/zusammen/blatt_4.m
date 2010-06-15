@@ -26,3 +26,6 @@ results_second_feature_reduced = [test_with_files(apple_pics,'bilder/',c3,@featu
 c4 = train_and_plot_two_features(@featureI, @feature2);
 results_two_features = [test_with_files(apple_pics,'bilder/',c4,@feature1_2); test_with_files(banana_pics,'bilder/',c4,@feature1_2)];
 
+%Trainieren beider Features aber nur jedes 10. Pixel
+
+c5 = train_and_plot_two_features(@featureI2,@feature2_reduced);
