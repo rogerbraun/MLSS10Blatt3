@@ -8,6 +8,6 @@ bananen = [bananen1; bananen2];
 
 classifier = train_classifier(aepfel,bananen);
 
-%plot_data(aepfel,bananen);
+plot_data_two_features(aepfel,bananen,'Beide Features');
 end
 

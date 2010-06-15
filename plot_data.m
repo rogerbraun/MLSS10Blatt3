@@ -1,9 +1,10 @@
-function plot_data(aepfel,bananen)
+function plot_data(aepfel,bananen,title_string)
     
     p_aepfel = mle(aepfel);
     p_bananen = mle(bananen);
 
-    figure;
+    figure('Name',title_string);
+    
     subplot(3,1,3);
     hold on;
     title('Verteilungen');

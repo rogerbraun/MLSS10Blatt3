@@ -7,11 +7,19 @@ banana_pics = str2mat('b0.jpg','b1.jpg','b2.jpg','b3.jpg','b4.jpg','b5.jpg',...
 % Trainieren und Plotten von Feature 1:
 c1 = train_and_plot(@featureI);
 
-results_first_feature = 
+title(['Feature 1: Rot-Anteil']);
+results_first_feature = [test_with_files(apple_pics,c1,@featureI); test_with_files(banana_pics,c1,@featureI)];
 % Trainieren und Plotten von Feature 2:
 c2 = train_and_plot(@feature2);
+results_second_feature = [test_with_files(apple_pics,c2,@feature2); test_with_files(banana_pics,c2,@feature2)];
+title(['Feature 2: Kreisähnlichkeit'];
+
 % Trainieren und Plotten von Feature 2 mit nur jedem 10. Pixel
 c3 = train_and_plot(@feature2_reduced);
+title(['Feature 2: Kreisähnlichkeit (Nur jedes 10. Pixel)'];
+
+results_second_feature_reduced = [test_with_files(apple_pics,c3,@feature2_reduced); test_with_files(banana_pics,c3,@feature2_reduced)];
 
 c4 = train_and_plot_two_features(@featureI, @feature2);
+results_two_features = [test_with_files(apple_pics,c4,@feature1_2); test_with_files(banana_pics,c4,@feature1_2)];
 
